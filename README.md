@@ -1,4 +1,17 @@
 # Credit Card Balance Prediction — Regression Project
+## Live Demo
+https://credit-card-regression-cmfqipqqfvpwqrmhh8nt74.streamlit.app/
+## Technologies Used
+- Python
+- Streamlit
+- Scikit-learn
+- Pandas
+- NumPy
+
+## ML Models
+- Linear Regression
+- Lasso Regression
+- Ridge Regression
 
 Predicting customer credit card balance from demographic and financial attributes using regularized linear regression, with a focus on handling multicollinearity between credit limit and credit rating.
 
