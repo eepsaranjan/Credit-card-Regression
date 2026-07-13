@@ -1,6 +1,6 @@
 # Credit Card Balance Prediction — Regression Project
 ## Live Demo
-https://credit-card-regression-cmfqipqqfvpwqrmhh8nt74.streamlit.app/
+https://credit-card-regression-bsfgvqbub3gnfbiddurnpv.streamlit.app/
 ## Technologies Used
 - Python
 - Streamlit
