@@ -245,7 +245,9 @@ def load_and_train():
     return model, scaler, r2, mae, rmse, importance, df
 
 
-model, scaler, r2, mae, rmse, importance, raw_df = load_and_train()
+import joblib
+model=joblib.load('credit_model.pkl')
+scaler=joblib.load('scaler.pkl')
 
 
 def build_input_row(income, limit, rating, cards, age, education, gender, student, married, ethnicity):
