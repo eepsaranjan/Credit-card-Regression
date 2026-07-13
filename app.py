@@ -225,15 +225,15 @@ def load_and_train():
     X = X.reindex(columns=FEATURE_COLUMNS, fill_value=0)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-    scaler = StandardScaler()
+    
+    import joblib
+    model=joblib.load('credit_model.pkl')
+    scaler=joblib.load('scaler.pkl')
+    
     X_train_scaled = X_train.copy()
     X_test_scaled = X_test.copy()
-    X_train_scaled[NUMERIC_COLS] = scaler.fit_transform(X_train[NUMERIC_COLS])
+    X_train_scaled[NUMERIC_COLS] = scaler.transform(X_train[NUMERIC_COLS])
     X_test_scaled[NUMERIC_COLS] = scaler.transform(X_test[NUMERIC_COLS])
-
-    model = Ridge(alpha=0.1, random_state=42)
-    model.fit(X_train_scaled, y_train)
 
     test_pred = model.predict(X_test_scaled)
     r2 = r2_score(y_test, test_pred)
@@ -244,10 +244,8 @@ def load_and_train():
 
     return model, scaler, r2, mae, rmse, importance, df
 
+model, scaler, r2, mae, rmse, importance, raw_df = load_and_train()
 
-import joblib
-model=joblib.load('credit_model.pkl')
-scaler=joblib.load('scaler.pkl')
 
 
 def build_input_row(income, limit, rating, cards, age, education, gender, student, married, ethnicity):
